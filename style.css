@@ -1,0 +1,44 @@
+.body {
+    max-width: 1000px;
+    padding: 15px;
+    margin: 55px auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 48px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 36px;
+}
+
+.ruler {
+    height: 2px;
+    background-color: #999;
+    border-width: 0px;
+}
+
+.article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+p {
+    font-size: 24px;
+    margin: 0px;
+}
+
+a {
+    font-size: 24px;
+}
+
+.date {
+    font-size: 24px;
+    color: #444;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
