@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Tom's Blog | canny</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../style.css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+
+<style>
+    .anchor-hide {
+        font-size: 16px;
+    }
+
+    img {
+        height: 330px;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .row {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<body>
+    <div class="body">
+        <a href="../index.html">home</a>
+        <h2>
+            canny
+        </h2>
+
+        <p class="date text-center">20/10/2022</p>
+
+        <div class="article-content">
+            <p>
+                Today I want to talk a bit about Canny Edge Detection's algorithm.
+            </p>
+
+            <h3>What is Edge Detection?</h3>
+            <p>
+                Edge detection is about extracting information about an image, in this case the edges of an object.
+                At the end of the algorithm, we want to know for each pixel of the image whether or not it is part of an
+                edge or not.
+            </p>
+
+            <h3>Why is it useful?</h3>
+            <p>
+                Edge detection is crucial for multiple areas of computer science such as Image Segmentation and
+                Processing (medical imaging) or even Machine Vision (autonomous driving)
+                <a class="anchor-hide" target="_blank"
+                    href="https://www.mathworks.com/discovery/image-segmentation.html"><sup>[1]</sup>
+                </a>.
+            </p>
+
+            <h3>Demonstration</h3>
+            <p>
+                Given a simple square picture (A), we first need to remove any noise produced by the electronic camera
+                used to take it.
+            </p>
+            <div class="margin-20 center col">
+                <img src="../images/canny/photograph.png" alt="Original picture">
+                <caption>(A)</caption>
+            </div>
+
+            <p>
+                We call such a noise a <i>Gaussian Noise</i> and therefore use a <i>Gaussian Filter</i> in order to
+                remove it.
+                As a result, this filter also makes the picture a little blurry since it removes some of the really high
+                frequencies (B).
+            </p>
+            <div class="margin-20 center col">
+                <img src="../images/canny/gaussian.png" alt="After application of Gaussian Filter">
+                <caption>(B)</caption>
+            </div>
+
+            <p>
+                Then, we compute the norm (C) and the angle (D) of the normal to the gradient for each pixel.
+                Then, notice that image (C) roughly contains the information we want, but has thick lines,
+                because of the blur introduced by the Gaussian Filter.
+            </p>
+            <div class="margin-20 center row">
+                <div class="margin-10 center col">
+                    <img src="../images/canny/gradient.png" alt="Norm of the normal to the gradient">
+                    <caption>(C)</caption>
+                </div>
+                <div class="margin-10 center col">
+                    <img src="../images/canny/angles.png" alt="Angle of the normal to the gradient">
+                    <caption>(D)</caption>
+                </div>
+            </div>
+
+            <p>
+                We therefore want to make the edges thinner with a technique called <i>Deletion of Non-Maxima</i> (E).
+            </p>
+            <div class="margin-20 center col">
+                <img src="../images/canny/deletion.png" alt="Image after deletion of non-maxima">
+                <caption>(E)</caption>
+            </div>
+
+            <p>
+                Finally, observe than some edges are not continuous (look at the left part of the coat).
+                We see that there is an edge before and after this gap going in the same direction so we can assume for
+                some pixels that this should be an edge as well, this technique is called <i>Hysterisis Thresholding</i>
+                and gives us our final picture (F).
+            </p>
+
+            <div class="margin-20 center col">
+                <img src="../images/canny/canny.png" alt="Final result of Canny Filter">
+                <caption>(F)</caption>
+            </div>
+        </div>
+
+        <h3>Semi-Automatic Edge Detection</h3>
+        <p>
+            I ommited numerous details in the previous section to try and simplify the explanation.
+            In fact the algorithm I described is not fully automatic, it requires the user to enter two variables used
+            in the <i>Hysterisis Threshold</i> algorithm.
+            In this section we show briefly the results of trying to guess such values.
+        </p>
+
+        <div class="margin-20 center">
+            <img src="../images/canny/photograph.gif" alt="Result for semi-automatic Canny Filter">
+        </div>
+    </div>
+</body>
+
+</html>

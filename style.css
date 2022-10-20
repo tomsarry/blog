@@ -1,7 +1,7 @@
 .body {
     max-width: 1000px;
     padding: 0px 15px;
-    margin: 20px auto;
+    margin: 20px auto 80px auto;
 }
 
 h1 {
@@ -12,6 +12,14 @@ h1 {
 h2 {
     text-align: center;
     font-size: 36px;
+    margin-bottom: 0px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    color: #333
 }
 
 .ruler {
@@ -29,7 +37,7 @@ h2 {
 }
 
 p {
-    font-size: 24px;
+    font-size: 20px;
     margin: 0px;
 }
 
@@ -38,7 +46,41 @@ a {
 }
 
 .date {
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: 300;
     color: #444;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.anchor-hide {
+    text-decoration: none;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.margin-20 {
+    margin: 20px;
+}
+
+.margin-10 {
+    margin: 10px;
 }
