@@ -26,6 +26,7 @@ h3 {
     height: 2px;
     background-color: #999;
     border-width: 0px;
+    margin: 15px 0px;
 }
 
 .article {
@@ -33,7 +34,16 @@ h3 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 0px;
+    margin: 3px 0px 0px 0px;
+}
+
+span.theme {
+    color: #666;
+}
+
+span.dot-separator {
+    margin: 0px 8px;
+    font-weight: 700;
 }
 
 p {
@@ -50,6 +60,9 @@ a {
     font-weight: 300;
     color: #444;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.article-date {
     margin-bottom: 20px;
 }
 
