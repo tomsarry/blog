@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Tom's Blog | blur</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../style.css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+
+<style>
+</style>
+
+<body>
+    <div class="body">
+        <a href="../index.html">home</a>
+        <h2>
+            blur
+        </h2>
+
+        <p class="date article-date text-center">31/10/2022</p>
+
+        <div class="article-content">
+            <p>
+                A few weeks ago a friend of mine asked me how much we could remove blur on an image.
+                I didn't really know what to respond at the time so I will try to give a few examples and results to
+                answer this question.
+            </p>
+
+            <h3>Types of Blur</h3>
+            <p>
+                This initial question isn't as easy as it may seem because there exists quite a few different types of
+                blur.
+                For instance, if you try to take a picture of a car going fast, you might only be able to capture the
+                blurry outlines of the car, but the perfectly clear landscape behind.
+                This setting will be very different than if you shook your hand before taking the picture for example.
+            </p>
+
+            <h3>Dealing with Blurry Pictures</h3>
+            <p>
+                There is no <i>Magic Formula</i> to deal with any bluriness, but rather at least as many as there are
+                blur
+                types (16 at least in Photoshop
+                <a class="anchor-hide" target="_blank"
+                    href="https://www.designiscope.com/post/types-of-blurs-in-photoshop-gaussian-motion-radial-etc"><sup>[1]</sup>
+                </a>).
+                Therefore, the person analyzing the picture will have to determine what kind of deformation the image
+                has and apply an appropriate algorithm, on either a portion or the whole picture.
+                If we go back to our example of the car going too fast on the highway, the picture obtained by the
+                police will probably be quite blurry.
+                They could try and improve the whole image, or just the <b>important part</b> - the numberplate.
+                Taking only a portion of the image will generally yield better results because the blur type will be
+                closer of being uniform than if taking the whole car.
+            </p>
+
+            <h3>Landweber's Algorithm</h3>
+            <p>
+                In this section we consider a simple gaussian blur model, without any noise (A).
+            </p>
+            <div class="margin-20 center col">
+                <img src="../images/landweber/degraded_withoutNoise_5.png" alt="Blurry picture">
+                <caption>(A)</caption>
+            </div>
+
+            <p>
+                To deal with such a distortion, we use here a Landweber Iteration Algorithm
+                <a class="anchor-hide" target="_blank"
+                    href="https://en.wikipedia.org/wiki/Landweber_iteration"><sup>[2]</sup>
+                </a>,
+                but I won't bore you with the details.
+                The only important part is that this algorithm works better the longer it runs.
+                Here is a demonstration of it running for 200 iterations on image (A) that had a little blur (5x5
+                Gaussian blur).
+            </p>
+            <div class="margin-20 center col">
+                <img src="../images/landweber/deblurring_5.gif" alt="Incremental deblurring of the image">
+                <caption>(B)</caption>
+            </div>
+
+            <p>
+                As you can see that even though this method leaves behind a few <i>artifacts</i> (the weird outline
+                around
+                the man), it yields pretty good results.
+                Let us try with a higher blur (11x11 Gaussian blur) on image (C).
+            </p>
+            <div class="margin-20 center col">
+                <img src="../images/landweber/degraded_withoutNoise_5.png" alt="Blurrier picture">
+                <caption>(C)</caption>
+            </div>
+
+            <p>
+                And below is an attempt to deblur it, with 300 iterations.
+            </p>
+            <div class="margin-20 center col">
+                <img src="../images/landweber/deblurring_11.gif" alt="Incremental deblurring of the image">
+                <caption>(D)</caption>
+            </div>
+
+            <p>
+                As you can see, the more important the blur, the more artifacts we generate and consequently the more
+                information we lose (this is not necessarily true for all blur types).
+            </p>
+
+        </div>
+
+        <h3>Bonus</h3>
+        <p>
+            Here are a few nice images I obtained while my program had bugs.
+        </p>
+
+        <div class="margin-20 center">
+            <img src="../images/landweber/waves.png" alt="Cursed waves">
+        </div>
+
+        <div class="margin-20 center">
+            <img src="../images/landweber/waves_animated.gif" alt="Cursed animated waves">
+        </div>
+
+        <p>
+            Remember kids, it is a good idea to initialize your matrices after allocating memory in C 🤡.
+        </p>
+    </div>
+</body>
+
+</html>
