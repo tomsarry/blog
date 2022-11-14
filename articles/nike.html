@@ -14,6 +14,19 @@
 
     cite {
         font-size: 1.6em;
+        text-align: center;
+    }
+
+    cite::before {
+        content: "“";
+        display: inline;
+        color: #555;
+    }
+
+    cite::after {
+        content: "”";
+        display: inline;
+        color: #555;
     }
 </style>
 
@@ -95,7 +108,7 @@
             </p>
 
             <div class="center margin-10">
-                <cite>Follow your dreams, do great things.</cite>
+                <cite>Follow your dreams, do&nbsp;great&nbsp;things.</cite>
             </div>
 
             <p class="indent">
