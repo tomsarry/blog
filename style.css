@@ -55,6 +55,7 @@ span.dot-separator {
 p {
     font-size: 20px;
     margin: 0px;
+    text-align: justify;
 }
 
 a {
@@ -78,6 +79,7 @@ a {
 
 .anchor-hide {
     text-decoration: none;
+    font-size: 16px;
 }
 
 .center {
@@ -102,4 +104,8 @@ a {
 
 .margin-10 {
     margin: 10px;
+}
+
+.indent {
+    text-indent: 2em;
 }
