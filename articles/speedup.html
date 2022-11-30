@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Tom's Blog | speedup</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../style.css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+
+<style>
+  p {
+    margin-bottom: 10px;
+  }
+</style>
+
+<body>
+  <div class="body">
+    <a href="../index.html">home</a>
+    <h2>
+      speedup
+    </h2>
+
+    <p class="date article-date text-center">30/11/2022</p>
+
+    <div class="article-content">
+      <p class="indent">
+        Today I had a presentation on the Speed-Up theorem for my Theory of Computation class, and I found the subject
+        so interesting that I thought I would share it there as well.
+        It has been developped by Manuel Blum in 1967, an MIT PhD that obtained later the Turing medal (equivalent
+        of the Nobel prize for Computer Science) for his contribution in cryptography and theory of complexity.
+        As an interesting side-note, he is the inventor of the CAPTCHA and its improvement, the reCAPTCHA.
+      </p>
+
+      <p class="indent">
+        Simply put, the theorem states that there exists functions that we cannot find optimal programs that compute
+        them.
+        An other way to say it is that there exists a function such that, if given a program <i>i</i> that computes it,
+        there
+        exists a program <i>j</i> that will compute this function but works much faster, or with much less memory,
+        almost
+        everywhere.
+        This is far from being trivial but the intuition lies in the fact that given inputs that become larger and
+        larger, we can <i>tailor</i> our program to be more efficient for those.
+      </p>
+
+      <p class="indent">
+        If those two short paragraphs interested you, you will find below a short abstract for my presentation, the
+        slides and a video explaining the proof.
+      </p>
+
+      <ul>
+        <li><a target="_blank" href="../assets/speedup/report.pdf">abstract</a> (fr)</li>
+        <li><a target="_blank" href="../assets/speedup/slides.pdf">slides</a> (fr)</li>
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=zyHcbaAxTfQ">presentation</a> (fr)</li>
+      </ul>
+
+    </div>
+</body>
+
+</html>
