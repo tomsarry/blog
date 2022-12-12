@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Tom's Blog | slic</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../style.css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+
+<style>
+  p {
+    margin-bottom: 10px;
+  }
+
+  img {
+    /* height: 330px;
+    max-height: 100%; */
+    max-width: 100%;
+  }
+
+  @media only screen and (max-width: 1300px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<body>
+  <div class="body">
+    <a href="../index.html">home</a>
+    <h2>
+      slic
+    </h2>
+
+    <p class="date article-date text-center">12/12/2022</p>
+
+    <div class="article-content">
+      <p class="indent">
+        My image processing class comes to an end, and with it I had to implement an algorithm of my choice.
+        I chose the Simple Linear Iterative Clustering (<b>SLIC</b>) Algorithm because the whitepaper looked really
+        cool,
+        and
+        I'm quite glad I did because I had a lot of fun programming it.
+        This algorithm is used to perform image segmentation, which is useful in many fields like medical imaging or
+        computer vision for example.
+        Furthermore, the segmentation is done using <i>superpixels</i>: geographically compact regions with similar
+        colors.
+        In fact, all operations are done in the LAB color space to benefit from its <i>perceptually uniform</i>
+        property,
+        really important to determine how <i>different</i> two colors are.
+        This novel approach was particularly interesting when it came out in 2010 because it was both faster and easier
+        to use than most contemporary State-of-the-Art approaches using superpixels.
+        You will find below a few results I obtained after running the algorithm:
+      </p>
+
+      <div class="margin-20 center col">
+        <img src="../assets/images/slic/church.png" alt="Original church picture">
+        <caption>(Original)</caption>
+      </div>
+
+      <div class="margin-20 center row">
+        <div class="margin-10 center col">
+          <img src="../assets/images/slic/church_segmented_256.png" alt="Segmentation using 256 superpixels">
+          <caption>(256 superpixels)</caption>
+        </div>
+        <div class="margin-10 center col">
+          <img src="../assets/images/slic/church_segmented_512.png" alt="Segmentation using 512 superpixels">
+          <caption>(512 superpixels)</caption>
+        </div>
+      </div>
+
+      <div class="margin-20 center col">
+        <img src="../assets/images/slic/fish.png" alt="Original fish picture">
+        <caption>(Original)</caption>
+      </div>
+
+      <div class="margin-20 center row">
+        <div class="margin-10 center col">
+          <img src="../assets/images/slic/fish_segmented_512.png" alt="Segmentation using 512 superpixels">
+          <caption>(512 superpixels)</caption>
+        </div>
+        <div class="margin-10 center col">
+          <img src="../assets/images/slic/fish_segmented_1024.png" alt="Segmentation using 1024 superpixels">
+          <caption>(1024 superpixels)</caption>
+        </div>
+      </div>
+
+      <p class="indent">
+        If you are interested in learning more, I wrote a more technical <a target="_blank"
+          href="../assets/pdfs/slic/report.pdf">report</a> (in french) describing the
+        algorithm in more detail, as well as giving more examples.
+        The code source for this project is free of any rights and is available on my <a target="_blank"
+          href="https://github.com/tomsarry/slic">github</a>.
+      </p>
+
+    </div>
+</body>
+
+</html>
